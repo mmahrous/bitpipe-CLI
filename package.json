@@ -1,0 +1,16 @@
+{
+  "name": "bitpipe_cli",
+  "version": "0.1.0",
+  "description": "Used to connect to bitpipe server. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "clear": "^0.1.0",
+    "commander": "^6.2.0"
+  }
+}
