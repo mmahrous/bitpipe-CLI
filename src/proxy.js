@@ -1,6 +1,17 @@
 const { throws } = require("assert");
 const http = require("http");
+const axios = require("axios");
 const zlib = require('zlib');
+
+
+axios.interceptors.response.use((response) => {
+	// do something with the response data
+	response.data += 'END'
+	return response;
+}, error => {
+	// handle the response error
+	return error;
+});
 
 class Proxy {
 	constructor(port, client) {
@@ -17,18 +28,12 @@ class Proxy {
 				headers: req.headers
 			},
 				res => {
-					let body = ""
 					res.on("data", d => {
-						body += d
+						this._client.write(req.id, d)
 					})
 					res.on("end", () => {
-						const data = this._compres({
-							statusCode: res.statusCode,
-							headers: { ...res.headers, 'socket-id': socketId},
-							body: body
-						})
 						this.__logger(req)
-						this._client.write(data);
+						setTimeout(() => this._client.write(req.id, "EOR"));
 					})
 				})
 			.end()
@@ -36,13 +41,14 @@ class Proxy {
 
 
 
-	__logger(res) {
-		console.info(new Date(), res.method, res.url, res.headers.agent)
+	__logger(req) {
+		console.info(new Date(), req.method, req.url, req.headers['user-agent'])
 	}
 
 
 	_compres(data) {
-		return zlib.deflateSync(Buffer.from(JSON.stringify(data)), 'utf8').toString('base64')
+		return data
+		// return zlib.deflateSync(data, 'utf8').toString('base64')
 	}
 }
 

@@ -4,13 +4,19 @@ const Proxy = require('./proxy');
 class Client {
 	constructor(port) {
 		this._client = new Net.Socket();
-		this._proxy = new Proxy(port, this._client);
+		this._proxy = new Proxy(port, this);
 		this._id;
 	}
 
 	connect(host, port, callback) {
 		this.__on(host, port);
 		this._client.connect({ host, port }, callback);
+	}
+
+	write(ch, data) {
+		// setTimeout(() => this._client.write('CH'+ch));
+		// setTimeout(() => );
+		this._client.write(data)
 	}
 
 	__on(host, port) {
