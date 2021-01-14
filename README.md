@@ -1,10 +1,20 @@
 # bitpipe CLI (Alpha)
 This CLI is used to connect to bitpipe server and create a long lived tcp connection to act as a bridge between the public access and local service.
 
+## Install 
+1. Go to [releases](https://github.com/mmahrous/bitpipe-CLI/releases)
+2. Choose what suites your operating system
+3. Download
+4. For linux and mac users run the following 
+```
+mv bitpipe_v0.1.0_mac_x64 /usr/local/bin/bp
+```
+5. For windows user run the file
+
 ## Usage
 If you have a http service running on 8000 and you want to tunnel
 ```
-node index.js http 8000
+bp http 8000
 ```
 
 <footer>
