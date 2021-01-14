@@ -1,16 +1,18 @@
 {
   "name": "bitpipe_cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Used to connect to bitpipe server. ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
+    "build": "node build.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "chalk": "^4.1.0",
     "clear": "^0.1.0",
-    "commander": "^6.2.0"
+    "commander": "^6.2.0",
+    "fast-tcp": "^3.3.2"
   }
 }
