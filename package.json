@@ -4,7 +4,8 @@
   "description": "Used to connect to bitpipe server. ",
   "main": "index.js",
   "scripts": {
-    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md"
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
+    "build": "node build.js"
   },
   "author": "",
   "license": "ISC",
