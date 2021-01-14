@@ -1,17 +1,4 @@
-const { throws } = require("assert");
 const http = require("http");
-const axios = require("axios");
-const zlib = require('zlib');
-
-
-axios.interceptors.response.use((response) => {
-	// do something with the response data
-	response.data += 'END'
-	return response;
-}, error => {
-	// handle the response error
-	return error;
-});
 
 class Proxy {
 	constructor(port, client) {

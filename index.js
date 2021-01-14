@@ -1,6 +1,5 @@
 const Client = require('./src/client');
 const clear = require('clear');
-const chalk = require('chalk');
 const { program } = require('commander');
 
 program
@@ -9,9 +8,8 @@ program
 	.action(function (port) {
 		clear();
 		const client = new Client(parseInt(port))
-		client.connect('localhost', 1234, () => {
-			console.info(chalk.blue('Connected to bitpipe.\n\n\n\n'))
-			console.info('Logs:')
+		client.connect('tcp.bitpipe.app', 3000, () => {
+			console.info('Connecting.....')
 		})
 	});
 
