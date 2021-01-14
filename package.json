@@ -4,7 +4,7 @@
   "description": "Used to connect to bitpipe server. ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md"
   },
   "author": "",
   "license": "ISC",
