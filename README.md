@@ -4,7 +4,7 @@ This CLI is used to connect to bitpipe server and create a long lived tcp connec
 ## Install 
 1. Go to [releases](https://github.com/mmahrous/bitpipe-CLI/releases)
 2. Choose what suites your operating system
-3. Download
+3. Download and extract
 4. For linux and mac users run the following 
 ```
 mv bitpipe_v0.1.0_mac_x64 /usr/local/bin/bp
